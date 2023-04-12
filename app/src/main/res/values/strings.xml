@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Widgets</string>
+    <string name="hundView">hund</string>
+    <string name="manView">man</string>
 </resources>
