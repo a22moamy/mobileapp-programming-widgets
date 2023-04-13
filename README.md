@@ -1,42 +1,45 @@
 
 # Rapport
 
-**Skriv din rapport här!**
-
-_Du kan ta bort all text som finns sedan tidigare_.
-
-## Följande grundsyn gäller dugga-svar:
-
-- Ett kortfattat svar är att föredra. Svar som är längre än en sida text (skärmdumpar och programkod exkluderat) är onödigt långt.
-- Svaret skall ha minst en snutt programkod.
-- Svaret skall inkludera en kort övergripande förklarande text som redogör för vad respektive snutt programkod gör eller som svarar på annan teorifråga.
-- Svaret skall ha minst en skärmdump. Skärmdumpar skall illustrera exekvering av relevant programkod. Eventuell text i skärmdumpar måste vara läsbar.
-- I de fall detta efterfrågas, dela upp delar av ditt svar i för- och nackdelar. Dina för- respektive nackdelar skall vara i form av punktlistor med kortare stycken (3-4 meningar).
-
-Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
+The app has a constraint layout consisting of a bigger layout parent and four child elements.
+These child elements are views with varying types: image, text and button.
+The layout's structure can be seen below: 
 
 ```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
-    }
-}
+<androidx.constraintlayout.widget.ConstraintLayout . . .  >
+    <ImageView . . . />
+    <ImageView . . . />
+    <TextView . . . />
+    <Button . . . />
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+In order to fulfill the requirements of a constraint layout, there must be constraints. 
+Therefore every element (except for the layout parent) gets a constraint for every 
+side: top, bottom, start and end. As an example, the code for one of the imageviews can be seen below.
+Some constraints include the end being constrained to the end of the parent, the start constrained to the 
+end of another imageview and et cetera. Different types of views are added to the app by using different tags and attributes,  
+for example "app:srcCompat=''" is the attribute which specifies which drawable the imageview should have.
+Notice that the tag starts with "ImageView" instead of e.g. "TextView", indicating it's type.
+
+```
+    <ImageView
+        . . .
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/dogImg"
+        app:layout_constraintBottom_toTopOf="@id/button2"
+        app:layout_constraintTop_toBottomOf="@id/textView2"
+        app:srcCompat="@drawable/man" />
 ```
 
-Bilder läggs i samma mapp som markdown-filen.
+To add some margin for visual purposes, the following line of code is added to the layout parent.
 
-![](android.png)
+```
+    android:layout_margin="10dp"
+```
 
-Läs gärna:
+All views are then constrained in a similar way, a way in which they are relative to each other 
+or the parent. After having placed all views the app gets the following appearance:
 
-- Boulos, M.N.K., Warren, J., Gong, J. & Yue, P. (2010) Web GIS in practice VIII: HTML5 and the canvas element for interactive online mapping. International journal of health geographics 9, 14. Shin, Y. &
-- Wunsche, B.C. (2013) A smartphone-based golf simulation exercise game for supporting arthritis patients. 2013 28th International Conference of Image and Vision Computing New Zealand (IVCNZ), IEEE, pp. 459–464.
-- Wohlin, C., Runeson, P., Höst, M., Ohlsson, M.C., Regnell, B., Wesslén, A. (2012) Experimentation in Software Engineering, Berlin, Heidelberg: Springer Berlin Heidelberg.
+![img.png](img.png)
