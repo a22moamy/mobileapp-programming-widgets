@@ -43,3 +43,8 @@ All views are then constrained in a similar way, a way in which they are relativ
 or the parent. After having placed all views, the app gets the following appearance:
 
 ![img.png](img.png)
+
+Images: 
+Image of a man: "Man With Cigarette In Mouth" (https://www.pexels.com/photo/man-with-cigarette-in-mouth-1933873/) taken by Thgusstavo Santana (https://www.pexels.com/@thgusstavo/) on Pexels (https://www.pexels.com/).
+Image of a dog: "Adorable Border Collie with leash" (https://www.pexels.com/photo/adorable-border-collie-with-leash-7210748/) taken by Blue Bird (https://www.pexels.com/@blue-bird/) on Pexels (https://www.pexels.com/).
+Both images are released under the Pexels-license, meaning they are free to be used and modified.
